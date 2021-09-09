@@ -68,4 +68,4 @@ while True:
 
     for notified_socket in except_sockets:
         clients.remove(notified_socket)
-        del clients_data[notified_socket ]
+        del clients_data[notified_socket]
