@@ -1,5 +1,6 @@
 from socket import socket, AF_INET, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
 from select import select
+from threading import Thread
 
 # Server constants
 HEADER_LENGTH = 10
@@ -59,7 +60,7 @@ while True:
                 del clients_data[notified_socket]
                 continue
 
-            user = clients[notified_socket]
+            user = clients_data[notified_socket]
             print(f"{user['data'].decode('utf-8')} >>> {message['data'].decode('utf-8')}")
 
             for client in clients_data:
